@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('novelas', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->timestamps();
+            $table->string('titulo',50);
+            $table->string('descricao',100);
+            $table->date('inicio_exibicao');
+            $table->date('fim_exibicao');
+            $table->decimal('topo_audiencia', total:10, places:2);
+            $table->integer('qtd_capitulos');
         });
     }
 
