@@ -20,10 +20,10 @@
                         type="text" 
                         name="titulo" 
                         :value="old('titulo')" 
-                        max="50"
+                        maxlength="50"
                         required 
                         autofocus 
-                        autocomplete="titulo" />
+                        autocomplete="name" />
                         <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
                     </div>
 
@@ -36,9 +36,9 @@
                         type="text" 
                         name="descricao" 
                         :value="old('descricao')" 
-                        max="100"
+                        maxlength="100"
                         required 
-                        autocomplete="descricao" />
+                        autocomplete="name" />
                         <x-input-error :messages="$errors->get('descricao')" class="mt-2" />
                     </div>
 
