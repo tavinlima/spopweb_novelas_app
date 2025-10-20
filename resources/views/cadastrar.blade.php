@@ -10,18 +10,35 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Cadastre uma novela aqui!") }}
-
+                <form method="POST" action="/cadastrar">
+                @csrf <!-- Token de formulário -->
                     <!-- Titulo -->
                     <div>
                         <x-input-label for="titulo" :value="__('Titulo')" />
-                        <x-text-input id="titulo" class="block mt-1 w-full" type="text" name="titulo" :value="old('titulo')" required autofocus autocomplete="titulo" />
+                        <x-text-input id="titulo" 
+                        class="block mt-1 w-full" 
+                        type="text" 
+                        name="titulo" 
+                        :value="old('titulo')" 
+                        max="50"
+                        required 
+                        autofocus 
+                        autocomplete="titulo" />
                         <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
                     </div>
 
                     <!-- Descricao -->
                     <div class="mt-4">
                         <x-input-label for="descricao" :value="__('Descricao')" />
-                        <x-text-input id="descricao" class="block mt-1 w-full" type="text" name="descricao" :value="old('descricao')" required autocomplete="descricao" />
+                        <x-text-input 
+                        id="descricao" 
+                        class="block mt-1 w-full" 
+                        type="text" 
+                        name="descricao" 
+                        :value="old('descricao')" 
+                        max="100"
+                        required 
+                        autocomplete="descricao" />
                         <x-input-error :messages="$errors->get('descricao')" class="mt-2" />
                     </div>
 
@@ -42,14 +59,29 @@
                     <!-- Pico de audiência -->
                     <div class="mt-4">
                         <x-input-label for="topo_audiencia" :value="__('Pico de audiência da novela')" />
-                        <x-text-input id="topo_audiencia" class="block mt-1 w-full" type="number" name="topo_audiencia" :value="old('topo_audiencia')" required autocomplete="topo_audiencia" />
+                        <x-text-input id="topo_audiencia" 
+                        class="block mt-1 w-full" 
+                        type="number" 
+                        name="topo_audiencia" 
+                        :value="old('topo_audiencia')" 
+                        step="0.01"
+                        required 
+                        autocomplete="topo_audiencia" />
                         <x-input-error :messages="$errors->get('topo_audiencia')" class="mt-2" />
                     </div>
 
                     <!-- Quantidade de capítulos -->
                     <div class="mt-4">
                         <x-input-label for="qtd_capitulos" :value="__('Quantidade de capítulos')" />
-                        <x-text-input id="qtd_capitulos" class="block mt-1 w-full" type="number" name="qtd_capitulos" :value="old('qtd_capitulos')" required autocomplete="qtd_capitulos" />
+                        <x-text-input 
+                        id="qtd_capitulos" 
+                        class="block mt-1 w-full" 
+                        type="number" 
+                        name="qtd_capitulos" 
+                        :value="old('qtd_capitulos')" 
+                        step="1"
+                        required 
+                        autocomplete="qtd_capitulos" />
                         <x-input-error :messages="$errors->get('qtd_capitulos')" class="mt-2" />
                     </div>
 
@@ -58,6 +90,7 @@
             <x-primary-button class="ms-4">
                 {{ __('Cadastrar') }}
             </x-primary-button>
+            </form>
         </div>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
